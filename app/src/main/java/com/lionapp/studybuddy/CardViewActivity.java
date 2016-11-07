@@ -43,7 +43,6 @@ public class CardViewActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
 
     private Button btnAdd;
-    private Button btnDelete;
     public static Boolean didSelect = Task.didSelect;
     public SharedPreferences prefs;
     public SharedPreferences.Editor editor;
@@ -70,7 +69,7 @@ public class CardViewActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
 
-// set an exit transition
+            // set an exit transition
             getWindow().setExitTransition(new Slide(Gravity.TOP));
         }
         setContentView(R.layout.activity_tasks);
@@ -84,7 +83,7 @@ public class CardViewActivity extends AppCompatActivity {
 
 
         final Gson gson = new Gson(); // Setting up the Gson
-        jsonTasks = prefs.getString("saveTask", null);  // Checks SharedPreferenc eto see if anything is there, i not return null
+        jsonTasks = prefs.getString("saveTask", null);  // Checks SharedPreference to see if anything is there, i not return null
         if (jsonTasks == null) {
             myTasks = new ArrayList<Task>();
         } else {
@@ -123,37 +122,13 @@ public class CardViewActivity extends AppCompatActivity {
 
         // Setting up the Buttons
         btnAdd = (Button) findViewById(R.id.btnShow);
-        //btnDelete = (Button) findViewById(R.id.button);
+
         btnAdd.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                /*Task temporary = new Task("HW", false);
-                myTasks.add(temporary);
-                String jsonTask = gson.toJson(myTasks);
-                editor.putString("saveTask", jsonTask);
-                editor.commit();
-                startActivity(new Intent(CardViewActivity.this, CardViewActivity.class));*/
                 launchActivity();
             }
         });
-        /*btnDelete.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int lastNumber = (myTasks.size());
-                if (lastNumber != 0) {
-                    int pos = (myTasks.size()) - 1;
-                    myTasks.remove(pos);
-                    String jsonTask = gson.toJson(myTasks);
-                    editor.putString("saveTask", jsonTask);
-                    editor.commit();
-                    startActivity(new Intent(CardViewActivity.this, CardViewActivity.class));
-                }
-
-
-            }
-        });*/
-
 
 
         // Setting up RecyclerView
@@ -218,7 +193,7 @@ public class CardViewActivity extends AppCompatActivity {
         startActivity(new Intent(CardViewActivity.this, CardViewActivity.class));
 
     }
-    // Beta fetaure of restricting access
+    // Beta feature of restricting access
     @Override
     public boolean onKeyDown(int keyCode, android.view.KeyEvent event) {
 
@@ -230,6 +205,8 @@ public class CardViewActivity extends AppCompatActivity {
     }
 
 // End of Beta Feature
+
+    // Launching an Activity and checking to see if transitions will work.
 public void launchActivity () {
     if (Build.VERSION.SDK_INT >= 21) {
         Intent intent = new Intent(CardViewActivity.this, NewTaskActivity.class);

@@ -75,9 +75,6 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
         viewHolder.time.setText("Time: " + hours + "Hr " + minutes + "Min " + seconds + "Sec");
         viewHolder.tvName.setTypeface(avenir);
 
-      //  viewHolder.tvEmailId.setText(stList.get(position).getEmailId());
-
-       // viewHolder.chkSelected.setChecked(stList.get(position).isSelected());
 
         viewHolder.tvName.setTag(stList.get(position));
         viewHolder.btnStartTimer.setTag(stList.get(position));
@@ -87,19 +84,9 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
             public void onClick(View v) {
                 // Code to Navigate to Timer Screen
                 Context mContext = v.getContext();
-                //CheckBox cb = (CheckBox) v;
-              //  System.out.println("HEY " + cb.getTag());
 
-               // Task contact = (Task) cb.getTag();
-
-               // contact.setSelected(cb.isChecked());
                 CardViewActivity.removePosition = pos;
-                //stList.get(pos).setSelected(cb.isChecked());
 
-                /*Toast.makeText(
-                        v.getContext(),
-                        "Clicked on Checkbox: " + cb.getText() + " is "
-                                + cb.isChecked(), Toast.LENGTH_LONG).show();*/
                 didSelect = true;
                 Intent i = new Intent(mContext, CardViewActivity.class);
                 mContext.startActivity(i);
@@ -171,19 +158,7 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
             public void onClick(View v) {
                 // Code to Navigate to Timer Screen
                 Context mContext = v.getContext();
-                //CheckBox cb = (CheckBox) v;
-                //  System.out.println("HEY " + cb.getTag());
-
-                // Task contact = (Task) cb.getTag();
-
-                // contact.setSelected(cb.isChecked());
                 CardViewActivity.removePosition = pos;
-                //stList.get(pos).setSelected(cb.isChecked());
-
-                /*Toast.makeText(
-                        v.getContext(),
-                        "Clicked on Checkbox: " + cb.getText() + " is "
-                                + cb.isChecked(), Toast.LENGTH_LONG).show();*/
                 didSelect = true;
                 Intent i = new Intent(mContext, CardViewActivity.class);
                 mContext.startActivity(i);
@@ -235,10 +210,6 @@ public class CardViewDataAdapter extends RecyclerView.Adapter<CardViewDataAdapte
 
             tvName = (TextView) itemLayoutView.findViewById(R.id.textView);
             time = (TextView) itemLayoutView.findViewById(R.id.textView2);
-
-           // tvEmailId = (TextView) itemLayoutView.findViewById(R.id.tvEmailId);
-            /*chkSelected = (CheckBox) itemLayoutView
-                    .findViewById(R.id.chkSelecteds);*/
             btnStartTimer = (ImageButton) itemLayoutView.findViewById(R.id.imageButton);
             btnDelete = (ImageButton) itemLayoutView.findViewById(R.id.imageButton2);
             rel = (RelativeLayout) itemLayoutView.findViewById(R.id.rel);
